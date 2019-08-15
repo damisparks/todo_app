@@ -10,9 +10,16 @@ class UserController {
       password,
       username: email
     })
-    console.log('this is : ', email, password)
+    return user
+  }
+
+  async login({ auth, request }) {
+    const { email, password } = request.all()
+    const token = await auth.attempt(email, password)
+
     return {
-      message: 'Hellooooworld'
+      message: 'Login was successful',
+      token
     }
   }
 }
