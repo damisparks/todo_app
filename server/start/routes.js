@@ -22,3 +22,6 @@ Route.get('/', () => {
 
 Route.post('auth/register', 'UserController.register')
 Route.post('auth/login', 'UserController.login')
+Route.get('lists', 'ListController.index').middleware('auth')
+Route.post('lists', 'ListController.create').middleware('auth')
+Route.delete('lists/:id', 'ListController.destroy').middleware('auth')
