@@ -18,6 +18,11 @@ class ListController {
     }
   }
 
+  /**
+   * @create
+   * A new list is created.
+   * @returns it returns the list that has been created.
+   */
   async create({ auth, request }) {
     const user = await auth.getUser()
     const { title } = request.all()
@@ -30,13 +35,27 @@ class ListController {
       'User List': list
     }
   }
-
+  /**
+   * @destroy
+   * The function is called when the list needed to be deleted   .
+   * @returns it returns the list that has been created.
+   */
   async destroy({ auth, params }) {
     const user = await auth.getUser()
     const { id } = params
     const list = await List.find(id)
     AuthorizationProvider.verifyPermission(list, user)
     await list.delete()
+    return list
+  }
+
+  async update({ auth, request, params }) {
+    const user = await auth.getUser()
+    const { id } = params
+    const list = await List.find(id)
+    AuthorizationProvider.verifyPermission(list, user)
+    list.merge(request.only('title'))
+    await list.save()
     return list
   }
 }
