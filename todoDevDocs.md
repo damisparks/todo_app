@@ -15,4 +15,6 @@
 - [x] create a `index` function to get the project associated with a user. 
 - [x] create `create` function to handle the creation of list. 
 - [x] create `destroy` function to handle the deletion of list associated with a certain user. 
-- [ ]  
+- [x] create Provider folder to handle error 
+- [x] create an Exception called `InValidAccess` inside the Exception folder using the adonis cli _using the help_`adonis --help`
+- [x] add `update` endpoint for updating the list
