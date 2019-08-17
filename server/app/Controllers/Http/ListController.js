@@ -31,7 +31,7 @@ class ListController {
     }
   }
 
-  async destroy({ auth, request, params }) {
+  async destroy({ auth, params }) {
     const user = await auth.getUser()
     const { id } = params
     const list = await List.find(id)
