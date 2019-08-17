@@ -36,7 +36,7 @@ class ListController {
     }
   }
   /**
-   * @destroy
+   * @function destroy
    * The function is called when the list needed to be deleted   .
    * @returns it returns the list that has been created.
    */

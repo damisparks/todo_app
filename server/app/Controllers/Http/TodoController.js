@@ -33,8 +33,36 @@ class TodoController {
       description
     })
     await list.todos().save(todo)
+    return todo
+  }
+
+  /**
+   * @function destroy
+   * delete Todo
+   * @returns  returns the todo destroyed
+   */
+  async destroy({ auth, params }) {
+    const user = await auth.getUser()
+    const { id } = params
+    const todo = await Todo.find(id)
+    const list = await todo.list().fetch()
+    AuthorizationProvider.verifyPermission(list, user)
+    await todo.delete()
     return {
-      'New Todo': todo
+      'Todo has been deleted': todo
+    }
+  }
+
+  async update({ auth, request, params }) {
+    const user = await auth.getUser()
+    const { id } = params
+    const todo = await Todo.find(id)
+    const list = await todo.list().fetch()
+    AuthorizationProvider.verifyPermission(list, user)
+    todo.merge(request.only(['description', 'accomplished']))
+    await todo.save()
+    return {
+      'Todo has been updated': todo
     }
   }
 }

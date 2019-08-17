@@ -13,6 +13,7 @@ class TodoSchema extends Schema {
         .references('id')
         .inTable('lists')
       table.string('description', 255)
+      table.boolean('accomplished')
       table.timestamps()
     })
   }
