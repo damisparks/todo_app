@@ -20,5 +20,8 @@
 - [x] add `update` endpoint for updating the list
 - [ ] create a new model for the `Todos`
 - [ ] create the `todo` to `list` association
-- [ ] create `index` endpoint endpoint
-- [ ] create `create` endpoint endpoint
+- [ ] create `index` endpoint endpoint for the `todo`
+- [ ] create `create` endpoint endpoint for the `todo`
+- [ ] create `update` endpoint endpoint for the `todo`
+- [ ] create `destroy` endpoint endpoint for the `todo`
+- [ ] add `accomplished` as a bolean to the `todo` table
