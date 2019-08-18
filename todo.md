@@ -1,5 +1,7 @@
 # Todo App Development Plan
 
+## Server
+
 - [x] install `adonis` cli globally
 - [x] create a server folder to handle all backend files.
 - [x] reate an api only project using `adonis.js` framework.
@@ -18,10 +20,17 @@
 - [x] create Provider folder to handle error
 - [x] create an Exception called `InValidAccess` inside the Exception folder using the adonis cli _using the help_`adonis --help`
 - [x] add `update` endpoint for updating the list
-- [ ] create a new model for the `Todos`
-- [ ] create the `todo` to `list` association
-- [ ] create `index` endpoint endpoint for the `todo`
-- [ ] create `create` endpoint endpoint for the `todo`
-- [ ] create `update` endpoint endpoint for the `todo`
-- [ ] create `destroy` endpoint endpoint for the `todo`
-- [ ] add `accomplished` as a bolean to the `todo` table
+- [x] create a new model for the `Todos`
+- [x] create the `todo` to `list` association
+- [x] create `index` endpoint endpoint for the `todo`
+- [x] create `create` endpoint endpoint for the `todo`
+- [x] create `update` endpoint endpoint for the `todo`
+- [x] create `destroy` endpoint endpoint for the `todo`
+- [x] add `accomplished` as a bolean to the `todo` table
+
+## Client
+
+- [x] update `vue cli`
+- [x] create a project `client` using `vue create <name>` _name here is **client**_
+- [x] also add the following dependency using `npm install axios lodash vuetify vuex-persistedstate`
+- [ ]
