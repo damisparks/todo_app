@@ -8,9 +8,6 @@
         <v-btn color="white" text>
           <v-icon>list_alt</v-icon>List
         </v-btn>
-        <v-btn color="white" text>
-          <v-icon>format_list_numbered</v-icon>Todo
-        </v-btn>
       </v-toolbar-items>
       <v-spacer></v-spacer>
 
@@ -21,7 +18,7 @@
         </v-btn>
         <v-btn text>
           <div class="my-2">
-            <v-btn depressed color="white">
+            <v-btn depressed color="white" to="/register">
               <v-icon>person_add</v-icon>Register
             </v-btn>
           </div>
