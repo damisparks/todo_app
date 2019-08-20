@@ -33,4 +33,9 @@
 - [x] update `vue cli`
 - [x] create a project `client` using `vue create <name>` _name here is **client**_
 - [x] also add the following dependency using `npm install axios lodash vuetify vuex-persistedstate`
-- [ ]
+- [x] create `plugins` folder to handle client plugins.
+- [x] create `vuetify.js` to handle the easy modification of the package.
+- [x] add the link to load the `material-icon` logo.
+- [x] create a `Toolbar` component to handle the navigation bar.
+- [x] add a `Register` component and add some basic theming
+- [x] add an `authenticate.js` to handle the authetication and store of the registered user
