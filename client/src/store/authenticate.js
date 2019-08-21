@@ -24,6 +24,11 @@ export default {
     },
   },
   actions: {
+    logout({ commit }) {
+      commit('SET_TOKEN', null);
+      router.push('/login');
+    },
+
     async register({ state, commit }) {
       commit('SET_REG_ERROR', null);
       try {

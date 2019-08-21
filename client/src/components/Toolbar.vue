@@ -12,8 +12,7 @@
       <v-spacer></v-spacer>
 
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn color="white" text to="/about">About</v-btn>
-        <v-btn color="white" text>
+        <v-btn color="white" text to="/login">
           <v-icon>fingerprint</v-icon>Login
         </v-btn>
         <v-btn text>
@@ -25,7 +24,7 @@
         </v-btn>
         <v-btn text>
           <div class="my-2">
-            <v-btn v-if="isLoggedIn" depressed color="white">
+            <v-btn v-if="isLoggedIn" @click="logout" depressed color="white">
               <v-icon>directions_run</v-icon>Logout
             </v-btn>
           </div>
@@ -36,11 +35,14 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   computed: {
     ...mapGetters('authenticate', ['isLoggedIn']),
+  },
+  methods: {
+    ...mapActions('authenticate', ['logout']),
   },
 };
 </script>
