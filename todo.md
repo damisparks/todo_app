@@ -39,3 +39,6 @@
 - [x] create a `Toolbar` component to handle the navigation bar.
 - [x] add a `Register` component and add some basic theming
 - [x] add an `authenticate.js` to handle the authetication and store of the registered user
+- [x] enable cors to allow cross origin request.
+- [x] create a service folder to house `http.js` file to make use of the axios modules.
+- [x] create functions that is used to handle request to our endpoint.
