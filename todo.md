@@ -42,3 +42,5 @@
 - [x] enable cors to allow cross origin request.
 - [x] create a service folder to house `http.js` file to make use of the axios modules.
 - [x] create functions that is used to handle request to our endpoint.
+- [x] add the html markup for the `login` components. 
+- [x] add computed properties and methods for the login to communicate with the login endpoint and database.
