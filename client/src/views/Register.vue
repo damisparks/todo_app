@@ -13,7 +13,7 @@
             :value="password"
             @input="SET_PASSWORD"
           ></v-text-field>
-          <v-alert type="error" :value="regError">{{regError}}</v-alert>
+          <v-alert type="error" v-if="regError">{{regError}}</v-alert>
           <v-btn @click="register">
             <v-icon>account_box</v-icon>Register
           </v-btn>
@@ -27,12 +27,6 @@
 import { mapState, mapMutations, mapActions } from 'vuex';
 
 export default {
-  data() {
-    return {
-      //   email: null,
-      //   password: null,
-    };
-  },
   computed: {
     ...mapState('authenticate', ['email', 'password', 'regError']),
   },
