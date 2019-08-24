@@ -1,5 +1,6 @@
-import router from '../router';
-import apiClient from '../services/http';
+import axios from "axios";
+import router from "../router";
+import apiClient from "../services/http";
 
 export default {
   namespaced: true,
@@ -10,8 +11,9 @@ export default {
     regError: null,
     loginPassword: null,
     loginEmail: null,
-    loginError: null,
+    loginError: null
   },
+
   mutations: {
     SET_EMAIL(state, payload) {
       state.email = payload;
@@ -33,45 +35,47 @@ export default {
     },
     SET_LOGIN_ERROR(state, payload) {
       state.loginError = payload;
-    },
+    }
   },
   actions: {
     logout({ commit }) {
-      commit('SET_TOKEN', null);
-      router.push('/login ');
+      commit("SET_TOKEN", null);
+      router.push("/login");
     },
 
     async register({ state, commit }) {
-      commit('SET_REG_ERROR', null);
+      commit("SET_REG_ERROR", null);
       try {
         const { data } = await apiClient.registerUser({
           email: state.email,
-          password: state.password,
+          password: state.password
         });
-        commit('SET_TOKEN', data.token);
-        router.push('/');
+        commit("SET_TOKEN", data.token);
+        router.push("/");
       } catch (e) {
-        commit('SET_REG_ERROR', 'An error occured trying to create your account.');
+        commit("SET_REG_ERROR", "An error occured trying to create your account.");
       }
     },
     async login({ commit, state }) {
-      commit('SET_LOGIN_ERROR', null);
+      commit("SET_LOGIN_ERROR", null);
       try {
         const { data } = await apiClient.loginUser({
           email: state.loginEmail,
-          password: state.loginPassword,
+          password: state.loginPassword
         });
-        commit('SET_TOKEN', data.token);
-        router.push('/');
+        console.log("Data Token", data.token.token);
+        commit("SET_TOKEN", data.token);
+        // apiClient.defaults.headers.common.Authorization = "Bearer $ {data.token.token}";
+        router.push("/");
       } catch (e) {
-        commit('SET_LOGIN_ERROR', 'Oops, An error occured trying to login');
+        commit("SET_LOGIN_ERROR", "Oops, An error occured trying to login");
       }
-    },
+    }
   },
 
   getters: {
     isLoggedIn(state) {
       return !!state.token;
-    },
-  },
+    }
+  }
 };

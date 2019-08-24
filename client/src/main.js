@@ -5,15 +5,17 @@ import Vue from 'vue';
 import vuetify from './plugins/vuetify';
 
 import App from './App.vue';
+import Holder from './components/Holder.vue';
 import router from './router';
 import store from './store/index';
 
-// window.axios = axios; // to reference axios globally
-// axios.defaults.baseURL = 'http://127.0.0.1:3333';
-
 Vue.config.productionTip = false;
+Vue.component('Holder', Holder);
 
 sync(store, router);
+
+// window.axios = axios;
+// axios.defaults.baseURL = '127.0.0.1:3333';
 
 new Vue({
   router,
