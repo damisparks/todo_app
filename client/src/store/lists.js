@@ -1,38 +1,57 @@
-import apiClient from '../services/http';
-import router from '../router';
+import Vue from 'vue'
+import HTTP from '../services/http'
+import router from '../router'
 
 export default {
   namespaced: true,
   state: {
     newListName: null,
-    lists: null,
-    onCreateError: null,
+    lists: [],
+    onCreateError: null
   },
   mutations: {
     SET_NEW_LIST_NAME(state, payload) {
-      state.newListName = payload;
+      state.newListName = payload
     },
     APPEND_LISTNAME(state, payload) {
-      state.lists.push(payload);
+      state.lists.push(payload)
     },
     SET_ON_CREATE_ERROR(state, payload) {
-      state.onCreateError = payload;
+      state.onCreateError = payload
     },
+    SET_NEW_LIST(state, payload) {
+      state.lists = payload
+    },
+    SET_IS_EDITABLE(state, payload) {
+      Vue.set(payload, 'isEditable', true)
+    },
+    CAN_NOT_SET_TO_EDIT(state, payload) {
+      Vue.set(payload, 'isEditable', false)
+    }
   },
   actions: {
     async createList({ state, commit }) {
-      commit('SET_ON_CREATE_ERROR', null);
+      commit('SET_ON_CREATE_ERROR', null)
       try {
-        const { data } = await apiClient.onListCreation({
-          title: state.newListName,
-        });
-        commit('APPEND_LISTNAME', data);
-        commit('SET_NEW_LIST_NAME', null);
+        const { data } = await HTTP().post('/lists', {
+          title: state.newListName
+        })
+        commit('APPEND_LISTNAME', data)
+        commit('SET_NEW_LIST_NAME', null)
       } catch (e) {
-        commit('SET_ON_CREATE_ERROR', 'An error occured creating list.');
+        commit('SET_ON_CREATE_ERROR', 'An error occured creating list.')
       }
     },
+
+    async fetchList({ commit }) {
+      try {
+        const { data } = await HTTP().get('/lists')
+        commit('SET_NEW_LIST', data)
+      } catch (e) {
+        commit('SET_ON_CREATE_ERROR', 'Oops something happened. Your list could not loaded.')
+      }
+    }
   },
 
-  getters: {},
-};
+  getters: {}
+}

@@ -3,7 +3,7 @@
     <v-toolbar color="black" fixed>
       <v-toolbar-title class="white--text font-weight-bold">SmartList</v-toolbar-title>
       <v-toolbar-items>
-        <v-btn v-if="isLoggedIn" color="white" text>
+        <v-btn v-if="isLoggedIn" color="white" to="/" text>
           <v-icon>list_alt</v-icon>List
         </v-btn>
       </v-toolbar-items>

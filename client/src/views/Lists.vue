@@ -14,9 +14,9 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import router from "../router";
-import ListView from "../components/ListView.vue";
+import { mapGetters } from 'vuex'
+import router from '../router'
+import ListView from '@/components/ListView.vue'
 // @ is an alias to /src
 
 export default {
@@ -24,13 +24,13 @@ export default {
     ListView
   },
 
-  // mounted() {
-  //   if (!this.isLoggedIn) {
-  //     return router.push("/login");
-  //   }
-  // },
+  mounted() {
+    if (!this.isLoggedIn) {
+      return router.push('/login')
+    }
+  },
   computed: {
-    ...mapGetters("lists", ["isLoggedIn"])
+    ...mapGetters('authenticate', ['isLoggedIn'])
   }
-};
+}
 </script>
