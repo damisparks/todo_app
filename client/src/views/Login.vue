@@ -9,6 +9,7 @@
             placeholder="Email"
             :value="loginEmail"
             @input="SET_LOGIN_EMAIL"
+            @keypress.enter="login"
           ></v-text-field>
           <v-text-field
             label="Password"
@@ -17,6 +18,7 @@
             autocomplete="new-password"
             :value="loginPassword"
             @input="SET_LOGIN_PASSWORD"
+            @keypress.enter="login"
           ></v-text-field>
           <v-alert type="error" v-if="loginError">{{loginError}}</v-alert>
           <v-btn @click="login">
@@ -29,17 +31,17 @@
 </template>
 
 <script>
-import { mapState, mapMutations, mapActions } from "vuex";
+import { mapState, mapMutations, mapActions } from 'vuex'
 
 export default {
   computed: {
-    ...mapState("authenticate", ["loginEmail", "loginPassword", "loginError"])
+    ...mapState('authenticate', ['loginEmail', 'loginPassword', 'loginError'])
   },
   methods: {
-    ...mapMutations("authenticate", ["SET_LOGIN_EMAIL", "SET_LOGIN_PASSWORD"]),
-    ...mapActions("authenticate", ["login"])
+    ...mapMutations('authenticate', ['SET_LOGIN_EMAIL', 'SET_LOGIN_PASSWORD']),
+    ...mapActions('authenticate', ['login'])
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
