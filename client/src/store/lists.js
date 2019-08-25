@@ -6,9 +6,13 @@ export default {
   state: {
     newListName: null,
     lists: [],
+    currentList: null,
     onCreateError: null
   },
   mutations: {
+    SET_CURRENT_LIST(state, payload) {
+      state.currentList = payload
+    },
     SET_NEW_LIST_NAME(state, payload) {
       state.newListName = payload
     },

@@ -25,6 +25,7 @@
       <CanEditRecord
         :isEditable="!list.isEditable"
         :title="list.title"
+        @onClick="listHasBeenCLicked(list)"
         @onInput="SET_LIST_TITLE({list, title: $event})"
         @onEdit="SET_IS_EDITABLE(list)"
         @onSave="saveListTitle(list)"
@@ -75,18 +76,24 @@ export default {
     ...mapState('lists', ['newListName', 'lists'])
   },
   methods: {
+    listHasBeenCLicked(list) {
+      this.SET_CURRENT_LIST(list)
+      this.fetchTodosForList(list)
+    },
     ...mapMutations('lists', [
       'SET_NEW_LIST_NAME',
       'SET_IS_EDITABLE',
       'CAN_NOT_SET_TO_EDIT',
-      'SET_LIST_TITLE'
+      'SET_LIST_TITLE',
+      'SET_CURRENT_LIST'
     ]),
     ...mapActions('lists', [
       'createList',
       'fetchList',
       'saveListTitle',
       'deleteList'
-    ])
+    ]),
+    ...mapActions('todos', ['fetchTodosForList'])
   }
 }
 </script>

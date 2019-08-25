@@ -4,27 +4,29 @@
       <v-flex xs4>
         <ListView />
       </v-flex>
-      <v-flex xs8>
-        <Holder title="Todos" class="ml-4">
-          <h1>No Content</h1>
-        </Holder>
+      <v-flex xs8 v-if="currentList">
+        <Todo></Todo>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 
+
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 import router from '../router'
 import ListView from '@/components/ListView.vue'
+import Todo from '@/components/Todo.vue'
 // @ is an alias to /src
 
 export default {
   components: {
-    ListView
+    ListView,
+    Todo
   },
 
   computed: {
+    ...mapState('lists', ['currentList']),
     ...mapGetters('authenticate', ['isLoggedIn'])
   },
   mounted() {

@@ -2,6 +2,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import authenticate from './authenticate'
+import todos from './todos'
 import lists from './lists'
 
 Vue.use(Vuex)
@@ -13,7 +14,7 @@ export default new Vuex.Store({
   },
   mutations: {},
   actions: {},
-  modules: { authenticate, lists }
+  modules: { authenticate, lists, todos }
 
   // plugins: [createPersistenceState()],
 })

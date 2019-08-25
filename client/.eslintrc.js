@@ -1,12 +1,11 @@
 module.exports = {
   root: true,
   env: {
-    node: true
+    node: true,
+    es6: true
   },
-
-  extends: ['plugin:vue/recommended', '@vue/airbnb'],
+  extends: ['plugin:vue/recommend', '@vue/airbnb'],
   rules: {
-    'import/no-cycle': 'off',
     'no-param-reassign': 'off',
     'arrow-body-style': 'off',
     'consistent-return': 'off',

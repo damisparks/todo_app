@@ -2,7 +2,7 @@
   <div>
     <v-layout row wrap>
       <v-flex xs9 class="text-left pl-4">
-        <span v-if="isEditable">{{ title }}</span>
+        <span v-if="isEditable" @click="$emit('onClick')">{{ title }}</span>
         <v-text-field
           v-if="!isEditable"
           autofocus
