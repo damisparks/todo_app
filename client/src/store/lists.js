@@ -1,6 +1,5 @@
 import Vue from 'vue'
-import HTTP from '../services/http'
-import router from '../router'
+import HTTP from '@/services/http'
 
 export default {
   namespaced: true,
@@ -27,6 +26,12 @@ export default {
     },
     CAN_NOT_SET_TO_EDIT(state, payload) {
       Vue.set(payload, 'isEditable', false)
+    },
+    SET_LIST_TITLE(state, { list, title }) {
+      list.title = title
+    },
+    REMOVE_LIST(state, payload) {
+      state.lists.splice(state.lists.indexOf(payload), 1)
     }
   },
   actions: {
@@ -50,6 +55,20 @@ export default {
       } catch (e) {
         commit('SET_ON_CREATE_ERROR', 'Oops something happened. Your list could not loaded.')
       }
+    },
+    saveListTitle({ commit }, payload) {
+      return HTTP()
+        .patch(`/lists/${payload.id}`, payload)
+        .then(() => {
+          commit('CAN_NOT_SET_TO_EDIT', payload)
+        })
+    },
+    deleteList({ commit }, payload) {
+      return HTTP()
+        .delete(`/lists/${payload.id}`)
+        .then(() => {
+          commit('REMOVE_LIST', payload)
+        })
     }
   },
 

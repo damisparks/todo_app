@@ -33,15 +33,15 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   computed: {
-    ...mapGetters("authenticate", ["isLoggedIn"])
+    ...mapGetters('authenticate', ['isLoggedIn']),
   },
   methods: {
-    ...mapActions("authenticate", ["logout"])
-  }
+    ...mapActions('authenticate', ['logout']),
+  },
 };
 </script>
 

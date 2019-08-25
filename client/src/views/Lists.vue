@@ -2,11 +2,11 @@
   <v-container>
     <v-layout>
       <v-flex xs4>
-        <ListView></ListView>
+        <ListView />
       </v-flex>
       <v-flex xs8>
         <Holder title="Todos" class="ml-4">
-          <h1>Something</h1>
+          <h1>No Content</h1>
         </Holder>
       </v-flex>
     </v-layout>
@@ -24,13 +24,13 @@ export default {
     ListView
   },
 
+  computed: {
+    ...mapGetters('authenticate', ['isLoggedIn'])
+  },
   mounted() {
     if (!this.isLoggedIn) {
       return router.push('/login')
     }
-  },
-  computed: {
-    ...mapGetters('authenticate', ['isLoggedIn'])
   }
 }
 </script>

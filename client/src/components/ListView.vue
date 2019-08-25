@@ -1,15 +1,25 @@
 <template>
   <Holder title="Lists">
-    <div dark v-for="list in lists" :key="list.id">
+    <div v-for="list in lists" :key="list.id" dark>
       <v-layout row wrap>
         <v-flex xs9 class="text-left pl-4">
-          {{ list.title }}
-          <span v-if="!list.isEditable">{{ list.title }}</span>
-          <v-text-field v-if="list.isEditable" :value="list.tile"></v-text-field>
+          <v-card max-width="344" class="mx-auto" color="#385F73">
+            <v-card-title class="headline mb-3">{{ list.title }}</v-card-title>
+          </v-card>
+
+          <span v-if="!list.isEditable" />
+          <v-text-field
+            v-if="list.isEditable"
+            autofocus
+            :value="list.title"
+            @keyup.enter="saveListTitle(list)"
+            @input="SET_LIST_TITLE({list, title:$event})"
+          />
         </v-flex>
         <v-flex xs3>
           <v-icon v-if="!list.isEditable" @click="SET_IS_EDITABLE(list)">edit</v-icon>
-          <v-icon v-if="list.isEditable" @click="CAN_NOT_SET_TO_EDIT(list)">check_circle</v-icon>
+          <v-icon v-if="list.isEditable" @click="saveListTitle(list)">check_circle</v-icon>
+          <v-icon @click="deleteList(list)">delete</v-icon>
         </v-flex>
       </v-layout>
     </div>
@@ -19,13 +29,14 @@
           placeholder="My List name..."
           single-line
           solo
-          @input="SET_NEW_LIST_NAME"
           :value="newListName"
-        ></v-text-field>
+          @keyup.enter="createList"
+          @input="SET_NEW_LIST_NAME"
+        />
       </v-flex>
       <v-flex xs4>
-        <v-btn @click="createList" class="ma-2" color="primary">
-          <v-icon dark>add_circle</v-icon>Create List
+        <v-btn class="ma-2" color="primary" @keypress.enter="createList">
+          <v-icon dark>add_circle</v-icon>Create
         </v-btn>
       </v-flex>
     </v-layout>
@@ -46,12 +57,25 @@ export default {
     ...mapMutations('lists', [
       'SET_NEW_LIST_NAME',
       'SET_IS_EDITABLE',
-      'CAN_NOT_SET_TO_EDIT'
+      'CAN_NOT_SET_TO_EDIT',
+      'SET_LIST_TITLE'
     ]),
-    ...mapActions('lists', ['createList', 'fetchList'])
+    ...mapActions('lists', [
+      'createList',
+      'fetchList',
+      'saveListTitle',
+      'deleteList'
+    ])
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.v-icon {
+  cursor: pointer;
+}
+
+.v-icon:hover {
+  color: #333;
+}
 </style>
