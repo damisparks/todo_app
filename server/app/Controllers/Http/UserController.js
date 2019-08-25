@@ -16,11 +16,7 @@ class UserController {
   async login({ auth, request }) {
     const { email, password } = request.all()
     const token = await auth.attempt(email, password)
-
-    return {
-      message: 'Login was successful',
-      token
-    }
+    return token
   }
 }
 

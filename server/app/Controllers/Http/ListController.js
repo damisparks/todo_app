@@ -10,12 +10,7 @@ class ListController {
    */
   async index({ auth }) {
     const user = await auth.getUser()
-    console.log(user)
-    return {
-      user_project: await user.lists().fetch(),
-      loggedIn: user,
-      message: 'Got User'
-    }
+    return await user.lists().fetch()
   }
 
   /**
@@ -31,9 +26,7 @@ class ListController {
       title
     })
     await user.lists().save(list)
-    return {
-      'User List': list
-    }
+    return list
   }
   /**
    * @function destroy
