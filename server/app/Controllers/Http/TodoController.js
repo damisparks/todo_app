@@ -48,9 +48,7 @@ class TodoController {
     const list = await todo.list().fetch()
     AuthorizationProvider.verifyPermission(list, user)
     await todo.delete()
-    return {
-      'Todo has been deleted': todo
-    }
+    return todo
   }
 
   async update({ auth, request, params }) {
@@ -61,9 +59,7 @@ class TodoController {
     AuthorizationProvider.verifyPermission(list, user)
     todo.merge(request.only(['description', 'accomplished']))
     await todo.save()
-    return {
-      'Todo has been updated': todo
-    }
+    return todo
   }
 }
 

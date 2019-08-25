@@ -44,3 +44,21 @@
 - [x] create functions that is used to handle request to our endpoint.
 - [x] add the html markup for the `login` components. 
 - [x] add computed properties and methods for the login to communicate with the login endpoint and database.
+- [x] create a `ListView` component to house creation of the list. 
+- [x] create `List` view to house the `ListView`
+- [x] add the `html` markup for the `ListView` and `List`
+- [x] implement creating a `List` and sending the response to the backend. 
+- [x] implement `editing` of the list and sending the response to the backend.
+- [x] persist data by sending the `actions` to the `mutations`
+- [x] add `autofocus` when editing the `list title`
+- [x] refactor List.vue by creating `CreateRecord.vue`
+- [x] create another `CanEditRecord.vue` to house _editing, save, deleting logics particular to that component_
+- [x] Create a `Todo.vue` component to handle the todos 
+- [x] implement the same logics from the `CanEditRecord.vue` and `CreateRecord.vue`. 
+- [x] create a `todos.js` file to handle the `store, mutations, actions` then render then on the `CanEditRecord.vue` and `CreateRecord.vue`. 
+
+## TODO : 
+- [ ] clean the UI
+- [ ] Redesign the DashBoard  
+- [ ] implement a `User Profile` for each `List` and `Todo`.
+- [ ] 
