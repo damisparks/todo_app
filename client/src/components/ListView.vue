@@ -1,7 +1,7 @@
 <template>
   <Holder title="Lists">
     <div v-for="list in lists" :key="list.id" dark>
-      <v-layout row wrap>
+      <!-- <v-layout row wrap>
         <v-flex xs9 class="text-left pl-4">
           <v-card max-width="344" class="mx-auto" color="#385F73">
             <v-card-title class="headline mb-3">{{ list.title }}</v-card-title>
@@ -21,9 +21,24 @@
           <v-icon v-if="list.isEditable" @click="saveListTitle(list)">check_circle</v-icon>
           <v-icon @click="deleteList(list)">delete</v-icon>
         </v-flex>
-      </v-layout>
+      </v-layout>-->
+      <CanEditRecord
+        :isEditable="!list.isEditable"
+        :title="list.title"
+        @onInput="SET_LIST_TITLE({list, title: $event})"
+        @onEdit="SET_IS_EDITABLE(list)"
+        @onSave="saveListTitle(list)"
+        @onDelete="deleteList(list)"
+      />
     </div>
-    <v-layout class="mt-2">
+    <CreateRecord
+      placeholder="My list is .... "
+      @onInput="SET_NEW_LIST_NAME"
+      :value="newListName"
+      @create="createList"
+    />
+
+    <!-- <v-layout class="mt-2">
       <v-flex xs8>
         <v-text-field
           placeholder="My List name..."
@@ -39,14 +54,20 @@
           <v-icon dark>add_circle</v-icon>Create
         </v-btn>
       </v-flex>
-    </v-layout>
+    </v-layout>-->
   </Holder>
 </template>
 
 <script>
 import { mapState, mapMutations, mapActions } from 'vuex'
+import CreateRecord from '@/components/CreateRecord.vue'
+import CanEditRecord from '@/components/CanEditRecord.vue'
 
 export default {
+  components: {
+    CreateRecord,
+    CanEditRecord
+  },
   mounted() {
     this.fetchList()
   },
