@@ -1,49 +1,63 @@
 <template>
   <div>
-    <v-toolbar color="black" fixed>
-      <v-toolbar-title class="white--text font-weight-bold">SmartList</v-toolbar-title>
+    <v-toolbar fixed list-topbar>
       <v-toolbar-items>
-        <v-btn v-if="isLoggedIn" color="white" to="/" text>
-          <v-icon>list_alt</v-icon>List
-        </v-btn>
+        <div class="my-2">
+          <v-icon class="ml-10" medium color="white">description</v-icon>
+        </div>
+        <v-toolbar-title class="white--text my-2 font-weight-bold mx-2">SmartList</v-toolbar-title>
+        <div class="my-2">
+          <v-btn color="white" small v-if="isLoggedIn" to="/" text>
+            <v-icon color="red accent-4">list_alt</v-icon>List
+          </v-btn>
+        </div>
       </v-toolbar-items>
       <v-spacer></v-spacer>
 
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn v-if="!isLoggedIn" color="white" text to="/login">
-          <v-icon>fingerprint</v-icon>Login
-        </v-btn>
-        <v-btn text>
-          <div class="my-2">
-            <v-btn v-if="!isLoggedIn" depressed color="white" to="/register">
-              <v-icon>person_add</v-icon>Register
-            </v-btn>
-          </div>
-        </v-btn>
-        <v-btn text>
-          <div class="my-2">
-            <v-btn v-if="isLoggedIn" @click="logout" depressed color="white">
-              <v-icon>directions_run</v-icon>Logout
-            </v-btn>
-          </div>
-        </v-btn>
+        <div class="my-2">
+          <v-btn class="mx-6" small v-if="!isLoggedIn" color="white" text to="/login">
+            <v-icon>fingerprint</v-icon>Login
+          </v-btn>
+        </div>
+
+        <div class="my-2">
+          <v-btn class="mr-12" small v-if="!isLoggedIn" color="white" to="/register">
+            <v-icon>person_add</v-icon>Register
+          </v-btn>
+        </div>
+
+        <div class="my-2">
+          <v-btn class="mr-12" small v-if="isLoggedIn" @click="logout" color="white">
+            <v-icon>directions_run</v-icon>Logout
+          </v-btn>
+        </div>
       </v-toolbar-items>
     </v-toolbar>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   computed: {
-    ...mapGetters('authenticate', ['isLoggedIn']),
+    ...mapGetters('authenticate', ['isLoggedIn'])
   },
   methods: {
-    ...mapActions('authenticate', ['logout']),
-  },
-};
+    ...mapActions('authenticate', ['logout'])
+  }
+}
 </script>
 
 <style lang="scss" scoped>
+[list-topbar] {
+  background-color: #111;
+  height: 44px;
+}
+
+.v-btn__content {
+  font-size: 14px;
+  font-weight: 400;
+}
 </style>

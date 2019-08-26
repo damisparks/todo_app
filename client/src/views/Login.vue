@@ -2,7 +2,8 @@
   <v-container mt-5>
     <v-layout row wrap>
       <v-flex xs6 offset-xs3>
-        <h1>Login</h1>
+        <h1>Sign in to SmartList</h1>
+
         <v-form>
           <v-text-field
             label="Email"
