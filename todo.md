@@ -56,6 +56,7 @@
 - [x] Create a `Todo.vue` component to handle the todos 
 - [x] implement the same logics from the `CanEditRecord.vue` and `CreateRecord.vue`. 
 - [x] create a `todos.js` file to handle the `store, mutations, actions` then render then on the `CanEditRecord.vue` and `CreateRecord.vue`. 
+- [ ] add margin right to the `Toolbar` to slide the `SmartList` title to right.
 
 ## TODO : 
 - [ ] clean the UI
