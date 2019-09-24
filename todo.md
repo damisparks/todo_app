@@ -56,7 +56,9 @@
 - [x] Create a `Todo.vue` component to handle the todos 
 - [x] implement the same logics from the `CanEditRecord.vue` and `CreateRecord.vue`. 
 - [x] create a `todos.js` file to handle the `store, mutations, actions` then render then on the `CanEditRecord.vue` and `CreateRecord.vue`. 
-- [ ] add margin right to the `Toolbar` to slide the `SmartList` title to right.
+- [x] add margin right to the `Toolbar` to slide the `SmartList` title to right.
+- [x] implement a checkbox for when the `Todo` is accomplished or not accomplished, save the state to the database. 
+- [x] renable the persistence state plugin to cache the state to the Local Storage.  
 
 ## TODO : 
 - [ ] clean the UI
