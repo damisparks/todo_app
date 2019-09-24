@@ -64,6 +64,9 @@ export default {
     },
     REMOVE_TODO(state, payload) {
       state.todos.splice(state.todos.indexOf(payload), 1)
+    },
+    TOGGLE_COMPLETED(state, payload) {
+      payload.accomplished = !payload.accomplished
     }
   },
 

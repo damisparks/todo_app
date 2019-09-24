@@ -4,7 +4,8 @@ module.exports = {
     node: true,
     es6: true
   },
-  extends: ['plugin:vue/recommended', '@vue/airbnb'],
+  // extends: ['plugin:vue/recommended', '@vue/airbnb'],
+  extends: ['plugin:vue/recommended'],
   rules: {
     'no-param-reassign': 'off',
     'arrow-body-style': 'off',

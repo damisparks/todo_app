@@ -1,8 +1,15 @@
 <template>
   <v-container mt-5>
-    <v-layout row wrap>
-      <v-flex xs6 offset-xs3>
+    <v-layout
+row
+              wrap
+>
+      <v-flex
+xs6
+              offset-xs3
+>
         <h1>Sign in to SmartList</h1>
+
 
         <v-form>
           <v-text-field
@@ -21,28 +28,34 @@
             @input="SET_LOGIN_PASSWORD"
             @keypress.enter="login"
           />
-          <v-alert v-if="loginError" type="error">{{ loginError }}</v-alert>
+          <v-alert
+v-if="loginError"
+                   type="error"
+>
+            {{ loginError }}
+          </v-alert>
           <v-btn @click="login">
             <v-icon>fingerprint</v-icon>Login
           </v-btn>
         </v-form>
-      </v-flex>
+        </slot>
+</v-flex>
     </v-layout>
   </v-container>
 </template>
 
 <script>
-import { mapState, mapMutations, mapActions } from 'vuex'
+import { mapState, mapMutations, mapActions } from 'vuex';
 
 export default {
   computed: {
-    ...mapState('authenticate', ['loginEmail', 'loginPassword', 'loginError'])
+    ...mapState('authenticate', ['loginEmail', 'loginPassword', 'loginError']),
   },
   methods: {
     ...mapMutations('authenticate', ['SET_LOGIN_EMAIL', 'SET_LOGIN_PASSWORD']),
-    ...mapActions('authenticate', ['login'])
-  }
-}
+    ...mapActions('authenticate', ['login']),
+  },
+};
 </script>
 
 <style lang="scss" scoped>
