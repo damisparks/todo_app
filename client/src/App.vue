@@ -12,13 +12,13 @@
 </template>
 
 <script>
-import Toolbar from './components/Toolbar.vue'
+import Toolbar from './components/Toolbar.vue';
 
 export default {
   components: {
-    Toolbar
-  }
-}
+    Toolbar,
+  },
+};
 </script>
 
 <style lang="scss" scoped>

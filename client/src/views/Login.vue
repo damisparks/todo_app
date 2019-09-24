@@ -11,7 +11,7 @@
             :value="loginEmail"
             @input="SET_LOGIN_EMAIL"
             @keypress.enter="login"
-          ></v-text-field>
+          />
           <v-text-field
             label="Password"
             placeholder="Password"
@@ -20,8 +20,8 @@
             :value="loginPassword"
             @input="SET_LOGIN_PASSWORD"
             @keypress.enter="login"
-          ></v-text-field>
-          <v-alert type="error" v-if="loginError">{{loginError}}</v-alert>
+          />
+          <v-alert v-if="loginError" type="error">{{ loginError }}</v-alert>
           <v-btn @click="login">
             <v-icon>fingerprint</v-icon>Login
           </v-btn>
