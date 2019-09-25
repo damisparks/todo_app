@@ -59,9 +59,11 @@
 - [x] add margin right to the `Toolbar` to slide the `SmartList` title to right.
 - [x] implement a checkbox for when the `Todo` is accomplished or not accomplished, save the state to the database. 
 - [x] renable the persistence state plugin to cache the state to the Local Storage.  
+- [x] build app for production. 
+- [ ] 
 
 ## TODO : 
 - [ ] clean the UI
 - [ ] Redesign the DashBoard  
 - [ ] implement a `User Profile` for each `List` and `Todo`.
-- [ ] 
+- [ ] To deploy to `Heroku`,`AppEngine`, `DigitalOcean`
