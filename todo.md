@@ -67,3 +67,4 @@
 - [ ] Redesign the DashBoard  
 - [ ] implement a `User Profile` for each `List` and `Todo`.
 - [ ] To deploy to `Heroku`,`AppEngine`, `DigitalOcean`
+- [ ] Implement some authentication layer. 
