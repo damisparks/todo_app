@@ -1,4 +1,4 @@
-# TODO
+# TODO APP
 _This is a basic **Todo** App built with `Vue.JS` on the [FrontEnd](https://vuejs.org) and [`Adonis.JS`](https://adonisjs.com) on the backend._
 
 ## Project Structure.
