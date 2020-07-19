@@ -1,5 +1,5 @@
-# SMARTLIST 
-_A **Todo** App built with `Vue.JS` and `Adonis.JS` on the backend._
+# TODO APP
+_This is a basic **Todo** App built with `Vue.JS` on the [FrontEnd](https://vuejs.org) and [`Adonis.JS`](https://adonisjs.com) on the backend._
 
 ## Project Structure.
 The project is structured into the following: 
